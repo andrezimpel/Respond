@@ -1,7 +1,9 @@
 # Respond.js 
 ### A fast & lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)
 
-## Edit
+#### Edit
+
+The fork adds some extra functionality like selecting the css files that should be loaded via the proxy-stuff and giving a callback when the script is done.
 
  - Copyright 2011: Scott Jehl, scottjehl.com
  - Dual licensed under the MIT or GPL Version 2 licenses. 
