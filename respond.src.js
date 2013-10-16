@@ -340,3 +340,20 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 		win.attachEvent( "onresize", callMedia );
 	}
 })(this);
+
+// hide content until everything is loaded -> this shit requires jQuery
+$(document).ready(function(){
+	if (!respond.mediaQueriesSupported) {
+		var body = document.getElementsByTagName("body")[0];
+  	body.style.cssText = "display: none !important";
+	};
+});
+
+$(window).load(function(){
+	if (!respond.mediaQueriesSupported) {
+		setTimeout(function(){
+			var body = document.getElementsByTagName("body")[0];
+			body.style.cssText = "display: block !important";
+		}, 1000);
+	}
+});

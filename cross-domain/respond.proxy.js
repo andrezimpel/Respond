@@ -105,15 +105,19 @@
 				extreg		= (/^([a-zA-Z]+?:(\/\/)?(www\.)?)/).test( href ),
 				ext			= (baseElem && !extreg) || extreg;
 
-			//make sure it's an external stylesheet
-			if( thislink.rel.indexOf( "stylesheet" ) >= 0 && ext ){
-				(function( link ){			
-					fakejax( href, function( css ){
-						link.styleSheet.rawCssText = css;
-						respond.update();
-					} );
-				})( thislink );
-			}	
+			
+			// only do shit with the data-proxy attribute
+			if (thislink.getAttribute("data-proxy")) {
+				//make sure it's an external stylesheet
+				if( thislink.rel.indexOf( "stylesheet" ) >= 0 && ext ){
+					(function( link ){			
+						fakejax( href, function( css ){
+							link.styleSheet.rawCssText = css;
+							respond.update();
+						} );
+					})( thislink );
+				}	
+			};
 		}
 
 		
@@ -125,3 +129,4 @@
 	}
 
 })( window, document );
+
